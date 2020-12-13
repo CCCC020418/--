@@ -45,6 +45,7 @@
 16. mvvm 说的就是双向数据绑定模型
     双数据绑定: 数据可以从data 流向页面 页面的数据被更新,也会从页面流向data
     当data的数据被更改以后,又会重新流向页面
+    
 17. el:'#app', 一般情况挂载都是书写配置
     .$mount('#app') 第二种写法
     Objext.dfineProperty方法
@@ -60,6 +61,7 @@
 
 21. computed
     当我需要一个数据,但是这个数据我又没有,并且这个数据由目前我有的数据计算而来.那就要用计算属性
+    
 22. 使用方法去获取姓名和计算属性去计算姓名的区别
     对于方法调用
     你是用了几次方法调用,那么这个方法被调用几次
@@ -75,4 +77,61 @@
 25. 我们去比较computed和watch 的时候起始比较的是计算属性的get方法
 
 26. 计算属性的set没什么说的,其实仅仅是对计算机的属性添加了监视(当计算属性的值被修改之后,会调用set)
+
+27. ####  Vue生命周期
+
+28. ```vue
+    new Vue({
+                el:"#app",
+                data() {
+                    return {
+                        isShow:true
+                    }
+                },
+                methods: {
+                    destory(){
+                        this.$destroy()
+                    }
+                },
+                beforeCreate() {
+                    // 初始化之前,打印不到
+                    console.log(this,this.isShow)
+                },
+                created() {
+                    //初始化之后能访问
+                    console.log(this.isShow)
+                },
+                beforeMount() {
+                    // 挂载阶段 
+                    console.log(this.$refs.pp)
+                },
+                mounted() {
+                    //发送ajax请求
+                    console.log(this.$refs.pp)
+                    this.timer = setInterval(()=>{
+                        this.isShow = !this.isShow
+                    },2000)
+                },
+                beforeUpdate() {
+                    //页面更新前  
+                    console.log(this.isShow,this.$refs.pp.innerHTML)
+                },
+                updated() {
+                    //页面更新后  
+                    console.log(this.isShow,this.$refs.pp.innerHTML)
+                },
+                //销毁
+                beforeDestroy() {
+                    //销毁之前
+                    clearInterval(this.timer)
+                    this.timer = null
+                },
+                destroyed() {
+                    //销毁后
+                    console.log('销毁')
+                },
+            })
+    ```
+
+    
 
