@@ -143,5 +143,27 @@
 
 3.组件标签使用的时候,name决定类名
 
-4.
+
+
+
+
+v-for="(comment,index) in coms"
+
+遍历列表渲染
+
+​      :key="comment.id"
+
+渲染对比
+
+​      :comment="comment"
+
+传评论
+
+​      :deleteComment="deleteComment"
+
+传删除方法
+
+​      :index="index"
+
+索引
 
