@@ -336,3 +336,41 @@ forEach   map   filter    some     every  reduce   都暗含遍历
 
 返回值:  把每一项都返回的新项组成的新数组返回
 
+async   await		是使用同步代码实现异步效果
+
+async 		函数代表这是一个异步函数	async 函数返回的是promise
+
+async 函数返回值不看return  必然返回promise
+
+async 函数返回的promise是成功还是失败  看return 
+
+retur 的结果代表promise是成功还是失败
+
+1. 如果return 的是一个非promise的值   代表成功
+2. 如果返回是成功的promise   代表async函数返回的promise也是成功的   (他们不是同一个promise)
+
+
+
+跨域  是浏览器上的同源策略
+
+请求分为http请求和ajax请求
+
+
+
+npm  i  vuex      -S
+
+   
+
+state是一个包含多个属性（不是方法）的对象，其实就是用来存储数据用的
+
+const state = {}
+
+ mutations也是一个对象，是一个包含了多个方法的对象，其实就是用这个里面的方法去直接操作数据的
+
+这个里面的方法不能包含if for异步，是直接操作的
+
+ actions也是一个对象，是一个包含了多个方法的对象。这个对象内部的方法是用来和vue当中用户的操作去关联的
+
+const actions = {}
+
+getters也是一个对象 ,是一个包含了多个方法的对象.这个对象内部的每个方法对应了一个计算机属性的get ,就是通过state 当中的已有数据  计算出来的一个新的想要使用的属性数据
