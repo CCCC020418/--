@@ -374,3 +374,11 @@ const state = {}
 const actions = {}
 
 getters也是一个对象 ,是一个包含了多个方法的对象.这个对象内部的每个方法对应了一个计算机属性的get ,就是通过state 当中的已有数据  计算出来的一个新的想要使用的属性数据
+
+const getters = {}
+
+
+
+
+
+npm i vue-router
